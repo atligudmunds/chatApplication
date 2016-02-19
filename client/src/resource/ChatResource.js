@@ -12,7 +12,9 @@ angular.module("chatApp").factory("ChatResource",
 				socket.emit("adduser", user, callback);
 			},
 			getRoomList: function getRoomList(callback) {
-				// TODO
+				socket.emit("rooms");
+
+				socket.on("roomlist", callback);
 			}
 		}
 	});

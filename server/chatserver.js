@@ -16,7 +16,7 @@ rooms.lobby = new Room();
 rooms.lobby.setTopic("Welcome to the lobby!");
 
 io.sockets.on('connection', function (socket) {
-
+	console.log("User connected!!!");
 	//This gets performed when a user joins the server.
 	socket.on('adduser', function(username, fn){
 

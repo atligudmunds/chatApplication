@@ -1,10 +1,10 @@
 "use strict";
 
 // Býr til module
-angular.module("chatApp", []).
+angular.module("chatApp", ['ngRoute']).
 config(function ($routeProvider) {
 	$routeProvider.when("/", {
-		templateUrl: "src/login/login.html",
+		templateUrl: "login/login.html",
 		controller: "LoginController"
 	});
 	/*.when("/rooms", {

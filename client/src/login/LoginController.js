@@ -4,7 +4,7 @@
 angular.module("chatApp").controller("LoginController",
 	function LoginController($scope) {
 		//ChatResource
-		$scope.errorMessage = "";
+		$scope.errorMessage = "Hey Hey!!!";
 		console.log("LoginController var keyrður");
 		/*$scope.onLogin = function onLogin() {
 			ChatResource.login($scope.user, $scope.pass, function(success) {

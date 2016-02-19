@@ -6,7 +6,5 @@ angular.module("chatApp").controller("RoomlistController",
 		ChatResource.getRoomList(function(TheRoomList){
 			$scope.TheRoomList = TheRoomList;
 			
-			
 		});
-		
 	});

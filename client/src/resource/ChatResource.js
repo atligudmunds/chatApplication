@@ -4,7 +4,6 @@ angular.module("chatApp").factory("ChatResource",
 	function ChatResource() {
 		var socket;
 		return {
-			
 			connect: function connect() {
 				socket = io.connect("http://localhost:8080");
 			},

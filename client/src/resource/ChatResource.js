@@ -4,7 +4,6 @@ angular.module("chatApp").factory("ChatResource",
 	function ChatResource() {
 		var socket;
 		return {
-			
 			connect: function connect() {
 				socket = io.connect("http://localhost:8080");
 			},
@@ -13,7 +12,9 @@ angular.module("chatApp").factory("ChatResource",
 				socket.emit("adduser", user, callback);
 			},
 			getRoomList: function getRoomList(callback) {
-				// TODO
+				socket.emit("rooms");
+
+				socket.on("roomlist", callback);
 			}
 		}
 	});

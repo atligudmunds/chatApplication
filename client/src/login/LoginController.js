@@ -2,15 +2,12 @@
 
 // sækir module (býr það EKKI til)
 angular.module("chatApp").controller("LoginController",
-	function LoginController($scope, $location) {
-		//ChatResource
+	function LoginController($scope, $location, ChatResource) {
 		//$scope.errorMessage = "Hey Hey!!!";
-		//console.log("LoginController var keyrður");
+		ChatResource.connect();
 		
-		var socket = io.connect("http://localhost:8080");
-
 		$scope.onLogin = function onLogin() {
-			socket.emit("adduser", $scope.user, function(available) {
+			ChatResource.login($scope.user, function(available) {
 				if(available === true) {
 					console.log("true!!!");
 					
@@ -18,7 +15,6 @@ angular.module("chatApp").controller("LoginController",
 					$scope.$apply();
 					
 					$scope.errorMessage = "ACCEPTED!!!";
-					// TODO: $location("slóð");
 				} else {
 					console.log("false!!!");
 					$scope.errorMessage = "ERROR ekki leyfilegt nafn";

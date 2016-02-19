@@ -6,11 +6,33 @@ io = require('socket.io').listen(server);
 
 server.listen(8080);
 
+/*this.users = {},
+	this.ops = {},
+	this.banned = {},
+	this.messageHistory = [],
+	this.topic = "No topic has been set for room..",
+	this.locked = false,
+	this.password = "",
+*/
+
+	var room1 = new Room(); 
+	var room2 = new Room(); 
+	var room3 = new Room(); 
+
+	room1.topic = "Lonely looking for looove";
+	room2.topic = "Belibers";
+	room3.topic = "Bronies";
+
+
+
 //Store room in an object.
-var rooms = {};
+var rooms = {
+	room1 , room2 , room3 
+};
 //Global user object, since we want to know what rooms each user is in etc.
 var users = {};
 console.log("SERVER started!!!");
+
 //Default room.
 rooms.lobby = new Room();
 rooms.lobby.setTopic("Welcome to the lobby!");

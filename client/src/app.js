@@ -6,12 +6,8 @@ config(function ($routeProvider) {
 	$routeProvider.when("/", {
 		templateUrl: "login/login.html",
 		controller: "LoginController"
-	});
-
-
-	
-	/*.when("/rooms", {
-		templateUrl: "src/roomlist/roomlist.hmtl"
+	}).when("/rooms", {
+		templateUrl: "roomlist/roomlist.html",
 		controller: "RoomlistController"
-	})*/
+	});
 });

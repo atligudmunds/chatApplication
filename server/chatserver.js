@@ -10,7 +10,7 @@ server.listen(8080);
 var rooms = {};
 //Global user object, since we want to know what rooms each user is in etc.
 var users = {};
-
+console.log("SERVER started!!!");
 //Default room.
 rooms.lobby = new Room();
 rooms.lobby.setTopic("Welcome to the lobby!");

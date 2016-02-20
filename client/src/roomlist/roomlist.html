@@ -1,10 +1,11 @@
 <div>
 	<h1> The Room List </h1>
-	<ul >
-		<li ng-repeat= "x in TheRoomList"> {{x.topic}} 
-		<a ng-href="#/rooms/{{x.topic}}"/> {{x.topic}} </li>
+	<ul>
+		<li ng-repeat= "(key, data) in TheRoomList"> {{key + ", " + data.topic}} 
+		<a ng-href="#/rooms/{{key}}"> join </a></li>
 	</ul>
 
-	<button ng-click="sendRoom2()">Send request</button>
-
+	<input type="text" ng-model="roomId"/>
+	<button ng-click="joinRoom()">Send request</button>
+	
 </div>

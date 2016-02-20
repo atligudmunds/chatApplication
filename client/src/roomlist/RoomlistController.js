@@ -9,7 +9,7 @@ angular.module("chatApp").controller("RoomlistController",
 			$scope.$apply();
 		});
 
-		$scope.sendRoom2 = function sendRoom2() {
-			ChatResource.sendRoom("room1");
+		$scope.joinRoom = function joinRoom() {
+			ChatResource.sendRoom($scope.roomId);
 		}
 	});

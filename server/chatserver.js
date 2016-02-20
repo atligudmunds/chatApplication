@@ -63,6 +63,7 @@ io.sockets.on('connection', function (socket) {
 
 		//If the room does not exist
 		if(rooms[room] === undefined) {
+			console.log("room CREATED!!!");
 			rooms[room] = new Room();
 			//Op the user if he creates the room.
 			rooms[room].ops[socket.username] = socket.username;
@@ -101,6 +102,8 @@ io.sockets.on('connection', function (socket) {
 			}
 			//If accepted is set to true at this point the user is allowed to join the room.
 			if(accepted) {
+				console.log("room JOINED");
+				console.log("ROOM: " + rooms[room].topic);
 				//We need to let the server know beforehand so that he starts to prepare the client template.
 				fn(true);
 				//Add user to room.

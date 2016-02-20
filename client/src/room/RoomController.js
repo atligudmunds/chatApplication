@@ -12,6 +12,7 @@ angular.module("chatApp").controller("RoomController",
 
 		ChatResource.onUpdateUsers(function(room, users, ops) {
 			console.log("room: " + room);
+			$scope.userList = users;
 			
 			Object.keys(users).forEach(function (key) {
 			    var val = users[key];

@@ -21,6 +21,28 @@ room1.addUser("Atli");
 room1.addUser("Ragna");
 
 
+var messageObj1 = {
+	nick : "Atli",
+	timestamp :  new Date(),
+	message : "hva eru ekki allir i studi?"
+};
+
+var messageObj2 = {
+	nick : "Brynja",
+	timestamp :  new Date(),
+	message : "æji þegiðu atli"
+};
+
+var messageObj3 = {
+	nick : "Ragna",
+	timestamp :  new Date(),
+	message : "já nenniru að hætta þessum commentum"
+};
+
+room1.addMessage(messageObj1);
+room1.addMessage(messageObj2);
+room1.addMessage(messageObj3);
+
 //Store room in an object.
 var rooms = {
 	room1 , room2 , room3 

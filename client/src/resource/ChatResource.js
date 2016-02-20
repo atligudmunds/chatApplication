@@ -25,6 +25,10 @@ angular.module("chatApp").factory("ChatResource",
 
 			onUpdateUsers: function onUpdateUsers(callback) {
 				socket.on("updateusers", callback);
+			},
+
+			onUpdateChat: function onUpdateChat(callback) {
+				socket.on("updatechat", callback);
 			}
 		}
 	});

@@ -20,4 +20,16 @@ angular.module("chatApp").controller("RoomController",
 			//console.log("users: " + Object.values(users));
 			console.log("ops: " + ops);
 		});
+
+
+		ChatResource.onUpdateChat(function(room, messages) {
+			console.log("-------chat--------");
+			console.log("room: " + room);
+			
+			Object.keys(messages).forEach(function (key) {
+			    var val = messages[key];
+			    console.log(val);
+			});
+		});
+
 	});

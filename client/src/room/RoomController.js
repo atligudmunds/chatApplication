@@ -10,6 +10,8 @@ angular.module("chatApp").controller("RoomController",
 		joinObj.pass = "";
 		ChatResource.joinRoom(joinObj);
 
+		$scope.roomName = id;
+
 		ChatResource.onUpdateUsers(function(room, users, ops) {
 			console.log("room: " + room);
 			$scope.userList = users;
@@ -37,6 +39,9 @@ angular.module("chatApp").controller("RoomController",
 
 		ChatResource.onServerMessage(function(join, room, user) {
 			console.log("------Server-Message------");
+			  $scope.joinMessage =  "User " + user +" has joined the " + room;
+
+			
 			if(join === "join") {
 				console.log("user: " + user + " joined " + room);
 			}

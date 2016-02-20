@@ -10,9 +10,19 @@ div .room {
 	position: fixed;
 	height: 1000px;
 	width:  12000px;
+
 } 
 
 
+
+div .room .roomMessage {
+	margin-left: 100px;
+	margin-right: 100px;
+
+	padding: 20px;
+	font-weight: 30px;
+
+}
 
 
  div .room  .userList {
@@ -20,13 +30,13 @@ div .room {
 	margin-right: 40px;
 	width: 200px;
 	background-color: lightpink ;
-
 	border-style: groove;
 	border-width: medium;
 	border-color: black;
 
-} 
 
+
+} 
 div .room  .message {
 
 	display: inline-block;

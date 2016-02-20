@@ -6,20 +6,18 @@ io = require('socket.io').listen(server);
 
 server.listen(8080);
 
-/*this.users = {},
-	this.ops = {},
-	this.banned = {},
-	this.messageHistory = [],
-	this.topic = "No topic has been set for room..",
-	this.locked = false,
-	this.password = "",
-*/
+
 
 	var room1 = new Room(); 
 	var room2 = new Room(); 
 	var room3 = new Room(); 
 
+	// Topics
 	room1.topic = "Lonely looking for looove";
+	room2.topic = "Belibers";
+	room3.topic = "Bronies";
+
+	room1.name = "Lonely looking for looove";
 	room2.topic = "Belibers";
 	room3.topic = "Bronies";
 
@@ -345,6 +343,7 @@ function Room() {
 	this.setTopic = function(topic) {
 		(topic !== undefined) ? this.topic = topic : console.log("ERROR: set topic");
 	};
+	
 	this.setPassword = function(pass) {
 		(pass !== undefined) ? this.password = pass : console.log("ERROR: set pass");
 		this.locked = true;

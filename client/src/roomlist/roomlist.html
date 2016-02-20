@@ -1,6 +1,8 @@
 <div>
-	<ul>
-		<li ng-repeat= "x in TheRoomList"> {{x.topic}} </li>
+	<h1> The Room List </h1>
+	<ul >
+		<li ng-repeat= "x in TheRoomList"> {{x.topic}} 
+		<a ng-href="#/rooms/{{x.topic}}"> {{x.topic}} </li>
 	</ul>
 
 </div>

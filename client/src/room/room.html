@@ -1,7 +1,14 @@
 <div class="room">
 
 	<h1>ROOM</h1>
+	
+	<div class="roomMessage">
+
+		
+	</div>
+
 	<div class="userList">
+	<h4>Users in the room</h4>
 	
 	<ul>
 		<li  ng-repeat= "(key,  x) in userList"> {{x}} 
@@ -12,7 +19,7 @@
 	<div class="message">
 	
 	<ul>
-		<li  ng-repeat= " (timestamp,  x) in message"> {{x.nick + ":" + x.timestamp + ":" + x.message}} </li> 
+		<li  ng-repeat= " (timestamp,  x) in message"> {{x.nick +  " " | uppercase }}{{x.timestamp | date:'hh:mm: '}} {{" " + x.message}} </li> 
 	</ul>
 
 	</div>

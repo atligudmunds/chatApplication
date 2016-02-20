@@ -11,6 +11,8 @@ config(function ($routeProvider) {
 		controller: "RoomlistController"
 	}).when("/rooms/:id", {
 		templateUrl: "room/room.html",
-		controller: "RoomController"
+		controller: "RoomController",
+		css: ["room/room.css" , 'room/room2.css']
+
 	});
 });

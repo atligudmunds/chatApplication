@@ -1,10 +1,23 @@
-<div>
+<div class="room">
 
 	<h1>ROOM</h1>
+	<div class="userList">
+	
 	<ul>
-		<li ng-repeat= "(key, x) in userList"> {{x.key + ", " + x}} 
+		<li  ng-repeat= "(key,  x) in userList"> {{x}} 
 		</li>
 	</ul>
 
+	</div>
+	<div class="message">
+	
+	<ul>
+		<li  ng-repeat= " (timestamp,  x) in message"> {{x.nick + ":" + x.timestamp + ":" + x.message}} </li> 
+	</ul>
+
+	</div>
 
 </div>
+
+
+<!-- nick timestamp message -->

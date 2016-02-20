@@ -26,9 +26,11 @@ angular.module("chatApp").controller("RoomController",
 		ChatResource.onUpdateChat(function(room, messages) {
 			console.log("-------chat--------");
 			console.log("room: " + room);
+			$scope.message = messages;
+
 			
-			Object.keys(messages).forEach(function (key) {
-			    var val = messages[key];
+			Object.keys(message).forEach(function (key) {
+			    var val = message[key];
 			    console.log(val);
 			});
 		});

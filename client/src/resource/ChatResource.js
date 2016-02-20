@@ -33,6 +33,10 @@ angular.module("chatApp").factory("ChatResource",
 
 			onServerMessage: function onServerMessage(callback) {
 				socket.on("servermessage", callback);
+			},
+
+			sendMessage: function sendMessage(data) {
+				socket.emit("sendmsg", data);
 			}
 		}
 	});

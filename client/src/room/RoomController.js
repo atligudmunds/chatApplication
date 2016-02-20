@@ -59,4 +59,10 @@ angular.module("chatApp").controller("RoomController",
 			//$scope.$apply();
 		}
 
+		$scope.onEnter = function onEnter(e) {
+			if(e.which == 13) {
+				$scope.sendMessage();
+			}
+		}
+
 	});

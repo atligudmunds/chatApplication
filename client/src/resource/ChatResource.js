@@ -17,13 +17,14 @@ angular.module("chatApp").factory("ChatResource",
 				socket.emit("rooms");
 			},
 
-			sendRoom: function sendRoom(roomId) {
-				var joinObj = {};
-				joinObj.room = roomId;
-				joinObj.pass = "12345";
+			joinRoom: function joinRoom(joinObj) {
 				socket.emit("joinroom", joinObj, function(success, reason) {
 					console.log("ANSWER: " + success);
 				});
+			},
+
+			onUpdateUsers: function onUpdateUsers(callback) {
+				socket.on("updateusers", callback);
 			}
 		}
 	});

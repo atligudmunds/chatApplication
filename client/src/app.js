@@ -9,5 +9,8 @@ config(function ($routeProvider) {
 	}).when("/rooms", {
 		templateUrl: "roomlist/roomlist.html",
 		controller: "RoomlistController"
+	}).when("/rooms/:id", {
+		templateUrl: "room/room.html",
+		controller: "RoomController"
 	});
 });

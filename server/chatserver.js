@@ -7,20 +7,18 @@ io = require('socket.io').listen(server);
 server.listen(8080);
 
 
+var room1 = new Room(); 
+var room2 = new Room(); 
+var room3 = new Room(); 
 
-	var room1 = new Room(); 
-	var room2 = new Room(); 
-	var room3 = new Room(); 
+// Topics
+room1.topic = "Lonely looking for looove";
+room2.topic = "Belibers";
+room3.topic = "Bronies";
 
-	// Topics
-	room1.topic = "Lonely looking for looove";
-	room2.topic = "Belibers";
-	room3.topic = "Bronies";
-
-	room1.name = "Lonely looking for looove";
-	room2.topic = "Belibers";
-	room3.topic = "Bronies";
-
+room1.addUser("Brynja");
+room1.addUser("Atli");
+room1.addUser("Ragna");
 
 
 //Store room in an object.

@@ -29,10 +29,11 @@ angular.module("chatApp").controller("RoomController",
 			console.log("-------chat--------");
 			console.log("room: " + room);
 			$scope.message = messages;
+			$scope.$apply();
 
 			
-			Object.keys(message).forEach(function (key) {
-			    var val = message[key];
+			Object.keys(messages).forEach(function (key) {
+			    var val = messages[key];
 			    console.log(val);
 			});
 		});
@@ -47,5 +48,15 @@ angular.module("chatApp").controller("RoomController",
 			}
 
 		});
+
+		$scope.sendMessage = function sendMessage() {
+
+			var msgObject = {};
+			msgObject.roomName = id;
+			msgObject.msg = $scope.messageBox;
+			ChatResource.sendMessage(msgObject);
+			$scope.messageBox = "";
+			//$scope.$apply();
+		}
 
 	});

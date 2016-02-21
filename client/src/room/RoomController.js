@@ -53,12 +53,13 @@ angular.module("chatApp").controller("RoomController",
 
 
 		$scope.sendMessage = function sendMessage() {
-
-			var msgObject = {};
-			msgObject.roomName = id;
-			msgObject.msg = $scope.messageBox;
-			ChatResource.sendMessage(msgObject);
-			$scope.messageBox = "";
+			if(ChatResource.isInputValid($scope.messageBox)) {
+				var msgObject = {};
+				msgObject.roomName = id;
+				msgObject.msg = $scope.messageBox;
+				ChatResource.sendMessage(msgObject);
+				$scope.messageBox = "";
+			}
 		}
 
 		$scope.onEnter = function onEnter(e) {

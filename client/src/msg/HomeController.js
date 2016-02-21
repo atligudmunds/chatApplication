@@ -25,7 +25,7 @@ angular.module("chatApp").controller("HomeController",
 			console.log("---received private msg---");
 			console.log("user: " + username);
 			console.log("msg: " + rcvMessage);
-
+			alert("user: " + username + "\nmsg: " + rcvMessage);
 			//$scope.$apply();
 		});
 });

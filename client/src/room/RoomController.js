@@ -86,11 +86,15 @@ angular.module("chatApp").controller("RoomController",
 		}
 
 		ChatResource.getKicked (function(room, user, asshole) {
-			// vantar case
 
-			$location.url("/rooms");
-			$scope.$apply();
-			alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you ");
+			if(user === ChatResource.myUsername) {
+				if(room === id) {
+					$location.url("/rooms");
+					$scope.$apply();					
+				}
+				alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you ");
+			}
+
 		}); 
 
 	});

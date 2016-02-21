@@ -11,6 +11,8 @@ angular.module("chatApp").controller("LoginController",
 				ChatResource.login($scope.user, function(available) {
 					if(available === true) {
 						console.log("true!!!");
+						ChatResource.myUsername = $scope.user;
+						console.log("your username is: " + ChatResource.myUsername);
 						$location.url("/rooms");
 						$scope.$apply();
 					} else {

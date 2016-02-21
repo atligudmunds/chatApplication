@@ -56,8 +56,9 @@ angular.module("chatApp").factory("ChatResource",
 				socket.emit("privatemsg", msgObj, callback);
 			},
 
-			rcvMessages: function rcvMessages(callback) {
+			receiveMessages: function receiveMessages(callback) {
 				socket.on("recv_privatemsg", callback);
 			}
+
 		}
 	});

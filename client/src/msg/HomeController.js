@@ -3,6 +3,7 @@
 angular.module("chatApp").controller("HomeController",
 	function HomeController($scope, $location, ChatResource) {
 		console.log("HomeController CALLED!!!");
+		ChatResource.connect();
 
 		$scope.getAllUsers = function getAllUsers() {
 			ChatResource.getAllUsers(function(userlist) {
@@ -16,9 +17,15 @@ angular.module("chatApp").controller("HomeController",
 			//$scope.$apply();
 		}
 
+
+		//ChatResource.receiveMessages();
 		//rcvMessages
-		ChatResource.rcvMessages(function(rcvMessage) {
-			$scope.rcvMessageList = rcvMessage;
+		ChatResource.receiveMessages( function(username, rcvMessage) {
+			//$scope.rcvMessageList = rcvMessage;
+			console.log("---received private msg---");
+			console.log("user: " + username);
+			console.log("msg: " + rcvMessage);
+
 			//$scope.$apply();
 		});
 });

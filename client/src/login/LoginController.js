@@ -4,7 +4,7 @@
 angular.module("chatApp").controller("LoginController",
 	function LoginController($scope, $location, ChatResource) {
 		//$scope.errorMessage = "Hey Hey!!!";
-		ChatResource.connect();
+		//ChatResource.connect();
 		
 		$scope.onLogin = function onLogin() {
 			if(ChatResource.isInputValid($scope.user)) {

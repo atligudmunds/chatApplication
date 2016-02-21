@@ -2,33 +2,29 @@
 
 	<h2> Velkomin í {{roomName}} hér er allur perraskapur  vel þeginn </h2>
 	
-
-
-
 	<div class="roomMessage">
 			<h4> Skilaboð: {{joinMessage}} </h4>
 	</div>
 	
-	
 	<div class="userList">
-	<h4>Users in the room</h4>
+		<h4>Users in the room</h4>
 	
-	<ul>
-		<li  ng-repeat= "(key,  x) in userList"> {{x}} 
-		</li>
-	</ul>
+		<ul>
+			<li  ng-repeat= "(key,  x) in userList"> {{x}} </li>
+		</ul>
 
 	</div>
 	<div class="message">
 	
-	<ul>
-		<li  ng-repeat= " (timestamp,  x) in message"> {{x.nick +  " " | uppercase }}{{x.timestamp | date:'hh:mm: '}} {{" " + x.message}} </li> 
-	</ul>
+		<ul>
+			<li  ng-repeat= " (timestamp,  x) in message"> <h4>{{x.nick +  ": "}} </h4> <small>{{x.timestamp | date:'hh:mm: '}}</small> <br />{{" " + x.message}} </li> 
+			<li><input class="inputmsg" type="text" ng-model="messageBox" ng-keypress="onEnter($event)"/>
+			<button ng-click="sendMessage()"> SEND </button></li>
+		</ul>
 
 	</div>
 
-	<input type="text" ng-model="messageBox" ng-keypress="onEnter($event)"/>
-	<button ng-click="sendMessage()"> SEND </button>
+	
 
 </div>
 

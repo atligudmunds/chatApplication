@@ -8,6 +8,10 @@ angular.module("chatApp").factory("ChatResource",
 				socket = io.connect("http://localhost:8080");
 			},
 
+			isInputValid: function isInputValid(inputText) {
+				return !((inputText === undefined) || (inputText === "") || (inputText === null));
+			},
+
 			login: function login(user, callback) {
 				socket.emit("adduser", user, callback);
 			},

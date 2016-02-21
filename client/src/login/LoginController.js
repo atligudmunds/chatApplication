@@ -7,19 +7,22 @@ angular.module("chatApp").controller("LoginController",
 		ChatResource.connect();
 		
 		$scope.onLogin = function onLogin() {
-			ChatResource.login($scope.user, function(available) {
-				if(available === true) {
-					console.log("true!!!");
-					
-					$location.url("/rooms");
-					$scope.$apply();
-					
-					$scope.errorMessage = "ACCEPTED!!!";
-				} else {
-					console.log("false!!!");
-					$scope.errorMessage = "ERROR ekki leyfilegt nafn";
-				}
-			});
+			if(ChatResource.isInputValid($scope.user)) {
+				ChatResource.login($scope.user, function(available) {
+					if(available === true) {
+						console.log("true!!!");
+						$location.url("/rooms");
+						$scope.$apply();
+					} else {
+						console.log("false!!!");
+						$scope.errorMessage = "ERROR: ekki leyfilegt nafn";
+						$scope.$apply();
+					}
+				});
+			} else {
+				$scope.errorMessage = "Verdur ad stimpla inn notandanafn";
+				//$scope.$apply();
+			}
 		}
 
 		$scope.onEnterIndex = function onEnterIndex(e) {
@@ -27,13 +30,4 @@ angular.module("chatApp").controller("LoginController",
 				$scope.onLogin();
 			}
 		}
-		/*$scope.onLogin = function onLogin() {
-			ChatResource.login($scope.user, $scope.pass, function(success) {
-				if(!success) {
-					$scope.errorMessage = "Innskráning mistókts";
-				} else {
-					// Senda annað
-				}
-			});
-		}*/
 });

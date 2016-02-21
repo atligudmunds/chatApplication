@@ -24,6 +24,18 @@ angular.module("chatApp").controller("RoomController",
 			console.log("ops: " + ops);
 		});
 
+		// The Message board when new user joins the chat
+		ChatResource.onServerMessage(function(join, room, user) {
+			console.log("------Server-Message------");
+			  
+			
+			if(join === "join") {
+				$scope.joinMessage =  "User " + user +" has joined the " + room;
+			 	 $scope.$apply();
+
+			}
+
+		});
 
 		ChatResource.onUpdateChat(function(room, messages) {
 			console.log("-------chat--------");
@@ -38,16 +50,7 @@ angular.module("chatApp").controller("RoomController",
 			});
 		});
 
-		ChatResource.onServerMessage(function(join, room, user) {
-			console.log("------Server-Message------");
-			  $scope.joinMessage =  "User " + user +" has joined the " + room;
 
-			
-			if(join === "join") {
-				console.log("user: " + user + " joined " + room);
-			}
-
-		});
 
 		$scope.sendMessage = function sendMessage() {
 
@@ -56,7 +59,6 @@ angular.module("chatApp").controller("RoomController",
 			msgObject.msg = $scope.messageBox;
 			ChatResource.sendMessage(msgObject);
 			$scope.messageBox = "";
-			//$scope.$apply();
 		}
 
 		$scope.onEnter = function onEnter(e) {

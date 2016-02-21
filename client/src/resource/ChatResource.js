@@ -45,7 +45,11 @@ angular.module("chatApp").factory("ChatResource",
 
 			leaveRoom: function leaveRoom(room) {
 				socket.emit("partroom", room);
-			}
+			},
 
+			getAllUsers: function getAllUsers(callback) {
+				socket.on("userlist", callback);
+				socket.emit("users");
+			}
 		}
 	});

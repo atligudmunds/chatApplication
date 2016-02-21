@@ -12,6 +12,10 @@
 		
 		</div>
 
+		<div ng-controller="HomeController">
+			<button ng-click="getAllUsers()">Get Users</button>
+			{{theOutput}}
+		</div>
 
 		<script src="../node_modules/angular/angular.js"></script>
 		<script src="../node_modules/angular-route/angular-route.js"></script>
@@ -30,6 +34,7 @@
 		<script src="room/RoomController.js"></script>
 		<style src="room/room.js"></style>
 
+		<script src="HomeController.js"></script>
 
 	</body>
 </html>

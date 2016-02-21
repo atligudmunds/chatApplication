@@ -37,6 +37,11 @@ angular.module("chatApp").factory("ChatResource",
 
 			sendMessage: function sendMessage(data) {
 				socket.emit("sendmsg", data);
+			},
+
+			leaveRoom: function leaveRoom(room) {
+				socket.emit("partroom", room);
 			}
+
 		}
 	});

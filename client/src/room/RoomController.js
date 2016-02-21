@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("chatApp").controller("RoomController",
-	function RoomController($scope, $routeParams, ChatResource) {
+	function RoomController($scope, $routeParams, ChatResource, $location) {
 
 		var id = $routeParams.id;
 
@@ -63,6 +63,12 @@ angular.module("chatApp").controller("RoomController",
 			if(e.which == 13) {
 				$scope.sendMessage();
 			}
+		}
+
+		$scope.leaveRoom = function leaveRoom() {
+				ChatResource.leaveRoom(id);
+				$location.url("/rooms");
+				$scope.$apply();
 		}
 
 	});

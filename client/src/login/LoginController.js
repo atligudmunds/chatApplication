@@ -21,6 +21,12 @@ angular.module("chatApp").controller("LoginController",
 				}
 			});
 		}
+
+		$scope.onEnterIndex = function onEnterIndex(e) {
+			if(e.which == 13) {
+				$scope.onLogin();
+			}
+		}
 		/*$scope.onLogin = function onLogin() {
 			ChatResource.login($scope.user, $scope.pass, function(success) {
 				if(!success) {

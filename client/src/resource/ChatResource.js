@@ -50,6 +50,14 @@ angular.module("chatApp").factory("ChatResource",
 			getAllUsers: function getAllUsers(callback) {
 				socket.on("userlist", callback);
 				socket.emit("users");
+			},
+
+			sendPrivateMsg: function sendPrivateMsg(msgObj, callback) {
+				socket.emit("privatemsg", msgObj, callback);
+			},
+
+			rcvMessages: function rcvMessages(callback) {
+				socket.on("recv_privatemsg", callback);
 			}
 		}
 	});

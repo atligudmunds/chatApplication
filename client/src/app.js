@@ -14,5 +14,8 @@ config(function ($routeProvider) {
 		controller: "RoomController",
 		css: ["room/room.css" , 'room/room2.css']
 
+	}).when("/sendMsg/:id", {
+		templateUrl: "msg/msg.html",
+		controller: "MsgController"
 	});
 });

@@ -74,4 +74,23 @@ angular.module("chatApp").controller("RoomController",
 				$scope.$apply();
 		}
 
+		$scope.kickUser = function kickUser(kickedUser) {
+			var kickObj = {};
+			kickObj.user = kickedUser;
+			kickObj.room = id;
+			ChatResource.kickUser(kickObj, function(status) {
+				if(status === true) {
+					console.log(kickedUser + " was kicked from room " + id);
+				}
+			});
+		}
+
+		ChatResource.getKicked (function(room, user, asshole) {
+			// vantar case
+
+			$location.url("/rooms");
+			$scope.$apply();
+			alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you ");
+		}); 
+
 	});

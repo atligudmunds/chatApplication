@@ -10,7 +10,7 @@
 		<h4>Users in the room</h4>
 	
 		<ul>
-			<li  ng-repeat= "(key,  x) in userList"> {{x}} </li>
+			<li  ng-repeat= "(key,  x) in userList"> {{x}} <button ng-click="kickUser(x)">KICK</button> <button ng-click="banUser(x)">BAN</button></li>
 		</ul>
 
 	</div>

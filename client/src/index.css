@@ -3,7 +3,7 @@ div  li {
     margin: 0;
 }
 
-
+h4 {display: inline;}
 
 div .room {
 
@@ -18,7 +18,7 @@ div .room {
 div .room .roomMessage {
 	margin-left: 100px;
 	margin-right: 100px;
-
+	color: #0d0033;
 	padding: 20px;
 	font-weight: 30px;
 
@@ -28,11 +28,12 @@ div .room .roomMessage {
  div .room  .userList {
  	display: inline-block;
 	margin-right: 40px;
-	width: 200px;
-	background-color: lightpink ;
+	width: 150px;
+	background-color: #e6eeff ;
 	border-style: groove;
 	border-width: medium;
-	border-color: black;
+	border-color: #0d0033;
+	padding: 10px;
 
 
 
@@ -42,11 +43,23 @@ div .room  .message {
 	display: inline-block;
 	float: left;
 	margin-left: 20px;
-	width: 400px;
-	background-color: lightgreen ;
+	width: 600px;
+	background-color:#e6eeff  ;
 
 	border-style: groove;
 	border-width: medium;
-	border-color: black;
+	border-color: #0d0033;
+	/*line-height:15px;*/
 
 } 
+div .room  .message .inputmsg {
+
+	float: left;
+	margin-left: 2px;
+	width: 500px;
+	background-color: white  ;
+
+
+
+} 
+

@@ -96,7 +96,6 @@ angular.module("chatApp").controller("RoomController",
 		}
 
 		ChatResource.getKicked (function(room, user, asshole) {
-
 			if(user === ChatResource.myUsername) {
 				if(room === id) {
 					$location.url("/rooms");
@@ -106,6 +105,32 @@ angular.module("chatApp").controller("RoomController",
 			}
 			else if(room === id) {
 				$scope.roomBannerMessage =  asshole + " kicked " + user + " from " + room;
+				$scope.$apply();
+			}
+		});
+
+
+		$scope.banUser = function banUser(bannedUser) {
+			var banObj = {};
+			banObj.user = bannedUser;
+			banObj.room = id;
+			ChatResource.banUser(banObj, function(status) {
+				if(status === true) {
+					console.log(kickedUser + " was kicked from room " + id);
+				}
+			});
+		}
+
+		ChatResource.getBanned(function(room, user, asshole) {
+			if(user === ChatResource.myUsername) {
+				if(room === id) {
+					$location.url("/rooms");
+					$scope.$apply();					
+				}
+				alert("You've been banned from room " + room + " because " + asshole + " didn't like you");
+			}
+			else if(room === id) {
+				$scope.roomBannerMessage =  asshole + " banned " + user + " from " + room;
 				$scope.$apply();
 			}
 		});

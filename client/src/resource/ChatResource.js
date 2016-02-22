@@ -67,6 +67,14 @@ angular.module("chatApp").factory("ChatResource",
 
 			getKicked: function getKicked(callback) {
 				socket.on("kicked", callback);
+			},
+
+			banUser: function banUser(banObj, callback) {
+				socket.emit("ban", banObj, callback);
+			},
+
+			getBanned: function getBanned(callback) {
+				socket.on("banned", callback);
 			}
 
 		}

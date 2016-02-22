@@ -5,12 +5,21 @@ angular.module("chatApp").controller("MsgController",
 		console.log("MsgController CALLED!!!");
 
 		//var receiverId = $routeParams.id;
+		$scope.MsgRecipient = "";
 
-		$scope.getAllUsers = function getAllUsers() {
+		function getAllUsers() {
 			ChatResource.getAllUsers(function(userlist) {
 				$scope.theOutput = userlist;
 				$scope.$apply();
 			});
+		}
+
+		$scope.getAllUsers = getAllUsers();
+		getAllUsers();
+		
+
+		$scope.chooseMsgRecipient = function chooseMsgRecipient(recipient) {
+			$scope.MsgRecipient = recipient;
 		}
 
 		/*$scope.sendMsgWindow = function sendMsgWindow(x) {
@@ -34,16 +43,17 @@ angular.module("chatApp").controller("MsgController",
 			//$scope.$apply();
 		});*/
 
-		/*$scope.sendPrivateMsg = function sendPrivateMsg() {
-			var msgObj = {};
-			msgObj.nick = receiverId;
-			msgObj.message = $scope.privateMsgBox;
+		$scope.sendPrivateMsg = function sendPrivateMsg() {
+			if($scope.MsgRecipient !== "") {
+				var msgObj = {};
+				msgObj.nick = $scope.MsgRecipient;
+				msgObj.message = $scope.privateMsgBox;
 
-			ChatResource.sendPrivateMsg(msgObj, function(status) {
-				if(status === true) {
-					console.log("message was sent to " + receiverId);
-				}
-			});
-		}*/
-	}
-);
+				ChatResource.sendPrivateMsg(msgObj, function(status) {
+					if(status === true) {
+						console.log("message was sent to " + msgObj.nick);
+					}
+				});
+			}
+		}
+	});

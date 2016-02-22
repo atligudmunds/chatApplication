@@ -1,3 +1,24 @@
+
+
+ .mainBody {
+ 	margin-right: auto;
+	margin-left: auto;
+	border-style: groove;
+	border-width: medium;
+	border-color: #0d0033;
+
+}
+
+h1 .mainBody {
+
+}
+
+div .mainBody .theView {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
 div  li {
 	list-style: none; /* Remove list bullets */
     margin: 0;
@@ -12,9 +33,6 @@ div .room {
 	width:  12000px;
 
 } 
-
-
-
 div .room .roomMessage {
 	margin-left: 100px;
 	margin-right: 100px;
@@ -23,8 +41,6 @@ div .room .roomMessage {
 	font-weight: 30px;
 
 }
-
-
  div .room  .userList {
  	display: inline-block;
 	margin-right: 40px;
@@ -34,32 +50,22 @@ div .room .roomMessage {
 	border-width: medium;
 	border-color: #0d0033;
 	padding: 10px;
-
-
-
 } 
 div .room  .message {
-
 	display: inline-block;
 	float: left;
 	margin-left: 20px;
 	width: 600px;
 	background-color:#e6eeff  ;
-
 	border-style: groove;
 	border-width: medium;
 	border-color: #0d0033;
-	/*line-height:15px;*/
 
 } 
 div .room  .message .inputmsg {
-
 	float: left;
 	margin-left: 2px;
 	width: 500px;
 	background-color: white  ;
-
-
-
 } 
 

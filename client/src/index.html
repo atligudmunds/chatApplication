@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html ng-app="chatApp">
 	<head>
-		<meta charset="UTF-8">
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	 <link rel="stylesheet" type="text/css" href="index.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+	 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+
 
 		<title>Chat APP</title>
 	<body>
-		<h1>Chat App</h1>
 		
-		<div ng-view >
-		
+	<div class="container">
+			<div class="jumbotron text-center" style="background-color:#ADD8E6
+
+ !important">
+
+			<h1>Chat App</h1>
 		</div>
 
+<!-- *********   The main Angular function ********************-->
+		
+	<div class="row">
+		<div class="col-md-8" >
+			
+		</style>
+			<div ng-view ></div>	
+		</div>
+	
+	
+			
+
+
+	<div class="col-md-4" >
 		<div ng-controller="HomeController">
-			<button ng-click="getAllUsers()">Get Users</button>
+			<button   class="btn btn-default btn-sm" ng-click="getAllUsers()">Senda Skilaboð</button>
+			<div class="row">
+			<div class="list-group">	
 			<ul>
-				<li ng-repeat= "x in theOutput"> {{x}}  <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
-
+				<li ng-repeat= "x in theOutput">
+			<button type="button" ng-click="sendMsgWindow(x)" class="list-group-item active">
+    		<h4 class="list-group-item-heading">{{x}}</h4>
+ 		 	</button>
+			</div>
+			 </li>
 			</ul>
-
-			<!--<ul>
-				<li ng-repeat="y in rcvMessageList"> {{y.username + ": " + y.message}} </li>
-			</ul>-->
+				
 		</div>
+	</div>
+	
+		
 
+		
 		<script src="../node_modules/angular/angular.js"></script>
 		<script src="../node_modules/angular-route/angular-route.js"></script>
 		<!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->		

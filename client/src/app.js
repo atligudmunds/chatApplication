@@ -12,12 +12,8 @@ config(function ($routeProvider) {
 	}).when("/rooms/:id", {
 		templateUrl: "room/room.html",
 		controller: "RoomController"
-
-	}).when("/message/" , {
-		templateUrl: "msg/message.html" ,
-		controller: "HomeController"
-	}).when("/sendMsg/:id", {
-		templateUrl: "msg/msg.html",
+	}).when("/msgWindow" , {
+		templateUrl: "msg/msgWindow.html" ,
 		controller: "MsgController"
 	});
 });

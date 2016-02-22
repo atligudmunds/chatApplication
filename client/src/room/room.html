@@ -1,36 +1,47 @@
-<div class="room">
+<div>
+<div class="row" style="padding: 20px">
+		<h4 style="text-align:center"> Skilaboð: {{roomBannerMessage}} </h4>
 
-	<h2> Velkomin í {{roomName}} hér er allur perraskapur  vel þeginn </h2>
-	
-	<div class="roomMessage">
-			<h4> Skilaboð: {{roomBannerMessage}} </h4>
-	</div>
-	
-	<div class="userList">
-		<h4>Users in the room</h4>
-	
-		<ul>
-			<li ng-repeat="(key, x) in opList"> (op){{x}} <button ng-click="kickUser(x)">KICK</button> <button ng-click="banUser(x)">BAN</button></li>
-		</ul>
+</div>
 
-		<ul>
-			<li ng-repeat="(key, x) in userList"> {{x}} <button ng-click="kickUser(x)">KICK</button> <button ng-click="banUser(x)">BAN</button></li>
-		</ul>
+	<div class="row" style="padding-left: 20px">
 
-	</div>
-	<div class="message">
-	
-		<ul>
+		<div class="col-md-7" style="background-color: #EFF8FB; border-style: groove; border-width: 1px; border-color: #06264A">
+			<ul class="list-unstyled">
 			<li  ng-repeat= " (timestamp,  x) in message"> <h4>{{x.nick +  ": "}} </h4> <small>{{x.timestamp | date:'hh:mm: '}}</small> <br />{{" " + x.message}} </li> 
 			<li><input class="inputmsg" type="text" ng-model="messageBox" ng-keypress="onEnter($event)"/>
-			<button ng-click="sendMessage()"> SEND </button></li>
+			<button class="btn btn-primary btn-xs" style="background-color: #2A517D" ng-click="sendMessage()"> SEND </button></li>
 		</ul>
 
+		</div>
+		<div class="col-md-1"> </div>
+		<div class="col-md-4" style="background-color: white; border-style: groove; border-width: 1px; border-color: white;">
+			<h4>Users in the room</h4>
+			<ul class="list-unstyled">
+				<li ng-repeat="(key, x) in opList"> 
+					(op){{x + "  "}} 
+					<button  class="btn btn-primary btn-xs" ng-click="kickUser(x)" style="background-color: white; color:#06264A" >KICK</button>
+					<button class="btn btn-primary btn-xs" ng-click="banUser(x)" style="background-color: white; color:#06264A" >BAN</button>
+				</li>
+			</ul>
+
+			<ul class="list-unstyled">
+				<li ng-repeat="(key, x) in userList"> 
+					{{x + "  "}} 
+					<button  class="btn btn-primary btn-xs" ng-click="kickUser(x)" style="background-color: white; color:#06264A" >KICK</button>					
+					<button class="btn btn-primary btn-xs" ng-click="banUser(x)" style="background-color: white; color:#06264A" >BAN</button>
+				</li>
+			</ul>
+
+		</div>
 	</div>
+
+	<div class="row" style="padding-right: 50px">
 
 	
 
-	<button ng-click="leaveRoom()"> Leave Room </button>
+	<button class="btn btn-primary btn-ms" style="background-color:#2A517D; float:right;"  ng-click="leaveRoom()"> Leave Room </button>
+	</div>
 
 </div>
 

@@ -16,20 +16,21 @@
 		
 	<div class="container">
 		<div ng-controller="HeaderController" ng-init="displayWelcome='';displayUsername=''">
-			<div class="jumbotron text-center" style="background-color:#ADD8E6!important; padding:5px !important">
+			<div class="jumbotron text-center" style="background-color:#2A517D!important; padding:5px !important">
 				
-				<h1 style="color:white"> Chat App</h1>
+				<h1 style="color:white"> ChatApp</h1>
 				
-				<div class="navbar-collapse collapse">
+				<div class="navbar-default" style="background: transparent">
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-sm-5">
 		        		
 		          			<ul class="nav navbar-nav navbar-left">
+					            
 					            <li> <a style="color:white" ng-click="msgWindow()">Skilaboð  </a><span ng-show="displayRcvMessage">MESSAGE</span>   </li>       
-
+					        
 					        </ul>
 						</div>  
-					    <div class="col-md-6">
+					    <div class="col-sm-6">
 				    	 		<p style="color:white; text-align: left;" >{{displayWelcome}}<strong>{{displayUsername}}</strong></p>
 						</div>
 				 
@@ -41,8 +42,9 @@
           		</div><!--/.nav-collapse -->
 
           		</div>
-          		
-		
+          	
+		  
+
 
 		<div class="row">
 			<div class="col-md-12" >

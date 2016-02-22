@@ -11,9 +11,22 @@ module.exports = function ( grunt ) {
         files: ['src/**/*.js'],
         tasks: ['jshint']
       },
+    concat: {
+    	options: {
+      		separator: ';',
+   		},
+    	js: {
+    		src: ['src/**/*.js', 'HeaderController.js', 'app.js', 'HomeController.js'],
+    		dest: 'build/app.js',
+    	},
+
+    },
     uglify: {
-    	src: [],
-    	dest: ''
+    	js: {
+    		// take concatenated file and minify to itself
+    		src: ['build/app.js'],
+    		dest: 'build/app.js'
+    	}
     }
   };
 
@@ -22,6 +35,8 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   
   grunt.registerTask('default', ['watch']);
+  //grunt.registerTask('default', ['watch']);
+
 
   grunt.initConfig ( taskConfig );
 

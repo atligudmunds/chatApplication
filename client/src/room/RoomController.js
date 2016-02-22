@@ -70,19 +70,19 @@ angular.module("chatApp").controller("RoomController",
 				ChatResource.sendMessage(msgObject);
 				$scope.messageBox = "";
 			}
-		}
+		};
 
 		$scope.onEnter = function onEnter(e) {
 			if(e.which == 13) {
 				$scope.sendMessage();
 			}
-		}
+		};
 
 		$scope.leaveRoom = function leaveRoom() {
 				ChatResource.leaveRoom(id);
 				$location.url("/rooms");
 				$scope.$apply();
-		}
+		};
 
 		$scope.kickUser = function kickUser(kickedUser) {
 			var kickObj = {};
@@ -93,7 +93,7 @@ angular.module("chatApp").controller("RoomController",
 					console.log(kickedUser + " was kicked from room " + id);
 				}
 			});
-		}
+		};
 
 		ChatResource.getKicked (function(room, user, asshole) {
 			if(user === ChatResource.myUsername) {
@@ -101,7 +101,7 @@ angular.module("chatApp").controller("RoomController",
 					$location.url("/rooms");
 					$scope.$apply();					
 				}
-				alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you");
+				//alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you");
 			}
 			else if(room === id) {
 				$scope.roomBannerMessage =  asshole + " kicked " + user + " from " + room;
@@ -119,7 +119,7 @@ angular.module("chatApp").controller("RoomController",
 					console.log(bannedUser + " was banned from room " + id);
 				}
 			});
-		}
+		};
 
 		ChatResource.getBanned(function(room, user, asshole) {
 			if(user === ChatResource.myUsername) {

@@ -25,8 +25,20 @@
 						<div class="col-sm-5">
 		        		
 		          			<ul class="nav navbar-nav navbar-left">
+
+					            <li> 
 					            
-					            <li ng-show="displayMsgButton"> <a style="color:white" ng-click="msgWindow()">Skilaboð  </a><span ng-show="displayRcvMessage">MESSAGE</span>   </li>       
+
+					            <!--<li ng-show="displayMsgButton"> <a style="color:white" ng-click="msgWindow()">Skilaboð  </a><span ng-show="displayRcvMessage">MESSAGE</span>   </li>       -->
+
+										<a ng-show="displayMsgButton" style="color:white" ng-click="msgWindow()">Messages </a>
+								  </li> 
+								  <li>
+							
+										<span class="glyphicon glyphicon-envelope" aria-hidden="true" ng-show="displayRcvMessage" style="color:white; float:right"></span>  
+									</li>
+					                
+
 					        
 					        </ul>
 						</div>  

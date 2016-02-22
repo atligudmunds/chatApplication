@@ -4,7 +4,7 @@ angular.module("chatApp").controller("RoomlistController",
 	function RoomlistController($scope, $location, ChatResource) {
 
 		ChatResource.onRoomList(function(TheRoomList){
-			console.log(TheRoomList)
+			console.log(TheRoomList);
 			$scope.TheRoomList = TheRoomList;
 			$scope.$apply();
 		});
@@ -19,7 +19,7 @@ angular.module("chatApp").controller("RoomlistController",
 			} else {
 				alert("You were banned from " + room);
 			}
-		}
+		};
 
 		$scope.createRoom = function createRoom() {
 			console.log($scope.roomId);
@@ -28,6 +28,6 @@ angular.module("chatApp").controller("RoomlistController",
 			} else {
 				console.log("EMPTY!!!");
 			}
-		}
+		};
 		
 	});

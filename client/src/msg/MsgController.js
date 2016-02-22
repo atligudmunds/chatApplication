@@ -28,7 +28,7 @@ angular.module("chatApp").controller("MsgController",
 
 		$scope.chooseMsgRecipient = function chooseMsgRecipient(recipient) {
 			$scope.MsgRecipient = recipient;
-		}
+		};
 
 		$scope.sendPrivateMsg = function sendPrivateMsg() {
 			if($scope.MsgRecipient !== "") {
@@ -42,5 +42,5 @@ angular.module("chatApp").controller("MsgController",
 					}
 				});
 			}
-		}
+		};
 	});

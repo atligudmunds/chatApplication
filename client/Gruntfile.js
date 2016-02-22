@@ -8,12 +8,18 @@ module.exports = function ( grunt ) {
       	all: ['Gruntfile.js' , 'src/**/*.js']
     },
     watch: {
-          files: ['src/**/*.js'],
-          tasks: ['jshint']
+        files: ['src/**/*.js'],
+        tasks: ['jshint']
       },
+    uglify: {
+    	src: [],
+    	dest: ''
+    }
   };
 
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   
   grunt.registerTask('default', ['watch']);
 

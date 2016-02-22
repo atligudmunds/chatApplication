@@ -3,14 +3,18 @@
 	<h2> Velkomin í {{roomName}} hér er allur perraskapur  vel þeginn </h2>
 	
 	<div class="roomMessage">
-			<h4> Skilaboð: {{joinMessage}} </h4>
+			<h4> Skilaboð: {{roomBannerMessage}} </h4>
 	</div>
 	
 	<div class="userList">
 		<h4>Users in the room</h4>
 	
 		<ul>
-			<li  ng-repeat= "(key,  x) in userList"> {{x}} </li>
+			<li ng-repeat="(key, x) in opList"> (op){{x}} <button ng-click="kickUser(x)">KICK</button> <button ng-click="banUser(x)">BAN</button></li>
+		</ul>
+
+		<ul>
+			<li ng-repeat="(key, x) in userList"> {{x}} <button ng-click="kickUser(x)">KICK</button> <button ng-click="banUser(x)">BAN</button></li>
 		</ul>
 
 	</div>

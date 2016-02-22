@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="chatApp">
 	<head>
+
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +27,12 @@
 
 <!-- *********   The main Angular function ********************-->
 		
+		<div ng-controller="HeaderController" ng-init="displayWelcome='';displayUsername=''">
+			<h1>Chat App</h1><p>{{displayWelcome}}<strong>{{displayUsername}}</strong></p>
+		</div>
+
+		<div ng-view >
+		
 	<div class="row">
 		<div class="col-md-8" >
 			
@@ -49,6 +56,11 @@
  		 	</button>
 			</div>
 			 </li>
+		<div ng-controller="HomeController" ng-init="displayButton=false">
+			<button ng-show="displayButton"ng-click="getAllUsers()">Get Users</button>
+			<ul>
+				<li ng-repeat= "x in theOutput"> {{x}} <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
+
 			</ul>
 				
 		</div>
@@ -74,6 +86,7 @@
 		<script src="resource/ChatResource.js"></script>
 		<script src="room/RoomController.js"></script>
 		<script src="msg/MsgController.js"></script>
+		<script src="HeaderController.js"></script>
 		<script src="msg/HomeController.js"></script>
 		
 

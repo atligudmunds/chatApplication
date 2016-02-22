@@ -3,6 +3,7 @@
 angular.module("chatApp").factory("ChatResource",
 	function ChatResource() {
 		var socket;
+		var myUsername;
 		return {
 			connect: function connect() {
 				socket = io.connect("http://localhost:8080");
@@ -58,6 +59,14 @@ angular.module("chatApp").factory("ChatResource",
 
 			receiveMessages: function receiveMessages(callback) {
 				socket.on("recv_privatemsg", callback);
+			},
+
+			kickUser: function kickUser(kickObj, callback) {
+				socket.emit("kick", kickObj, callback);
+			},
+
+			getKicked: function getKicked(callback) {
+				socket.on("kicked", callback);
 			}
 
 		}

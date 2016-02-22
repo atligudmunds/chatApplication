@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("chatApp").controller("HomeController",
-	function HomeController($scope, $location, ChatResource) {
+	function HomeController($scope, $rootScope, $location, ChatResource) {
 		console.log("HomeController CALLED!!!");
 		ChatResource.connect();
 
@@ -17,6 +17,10 @@ angular.module("chatApp").controller("HomeController",
 			//$scope.$apply();
 		}
 
+		$rootScope.$on("usernameReceived", function() {
+			$scope.displayButton = true;
+		});
+		
 
 		//ChatResource.receiveMessages();
 		//rcvMessages

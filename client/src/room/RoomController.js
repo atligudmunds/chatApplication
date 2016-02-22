@@ -13,8 +13,12 @@ angular.module("chatApp").controller("RoomController",
 		$scope.roomName = id;
 
 		ChatResource.onUpdateUsers(function(room, users, ops) {
-			console.log("room: " + room);
-			$scope.userList = users;
+			console.log("users were updated in room: " + room);
+			if(room === id) {
+				$scope.opList = ops;
+				$scope.userList = users;
+				$scope.$apply();
+			}
 			
 			Object.keys(users).forEach(function (key) {
 			    var val = users[key];
@@ -25,14 +29,18 @@ angular.module("chatApp").controller("RoomController",
 		});
 
 		// The Message board when new user joins the chat
-		ChatResource.onServerMessage(function(join, room, user) {
+		ChatResource.onServerMessage(function(status, room, user) {
 			console.log("------Server-Message------");
 			  
-			
-			if(join === "join") {
-				$scope.joinMessage =  "User " + user +" has joined the " + room;
-			 	 $scope.$apply();
-
+			if(room === id) {
+				if(status === "join") {
+					$scope.roomBannerMessage =  "User " + user + " has joined " + room;
+				 	$scope.$apply();
+				}
+				else if(status === "part") {
+					$scope.roomBannerMessage =  "User " + user + " has left " + room;
+				 	$scope.$apply();
+				}
 			}
 
 		});
@@ -40,9 +48,11 @@ angular.module("chatApp").controller("RoomController",
 		ChatResource.onUpdateChat(function(room, messages) {
 			console.log("-------chat--------");
 			console.log("room: " + room);
-			$scope.message = messages;
-			$scope.$apply();
-
+			
+			if(room === id) {
+				$scope.message = messages;
+				$scope.$apply();
+			}
 			
 			Object.keys(messages).forEach(function (key) {
 			    var val = messages[key];
@@ -73,5 +83,31 @@ angular.module("chatApp").controller("RoomController",
 				$location.url("/rooms");
 				$scope.$apply();
 		}
+
+		$scope.kickUser = function kickUser(kickedUser) {
+			var kickObj = {};
+			kickObj.user = kickedUser;
+			kickObj.room = id;
+			ChatResource.kickUser(kickObj, function(status) {
+				if(status === true) {
+					console.log(kickedUser + " was kicked from room " + id);
+				}
+			});
+		}
+
+		ChatResource.getKicked (function(room, user, asshole) {
+
+			if(user === ChatResource.myUsername) {
+				if(room === id) {
+					$location.url("/rooms");
+					$scope.$apply();					
+				}
+				alert("You've been kicked out of room " + room + " because " + asshole + " didn't like you");
+			}
+			else if(room === id) {
+				$scope.roomBannerMessage =  asshole + " kicked " + user + " from " + room;
+				$scope.$apply();
+			}
+		});
 
 	});

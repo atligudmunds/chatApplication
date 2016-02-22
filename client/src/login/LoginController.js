@@ -2,9 +2,10 @@
 
 // sækir module (býr það EKKI til)
 angular.module("chatApp").controller("LoginController",
-	function LoginController($scope, $location, ChatResource) {
+	function LoginController($scope, $rootScope, $location, ChatResource) {
 		//$scope.errorMessage = "Hey Hey!!!";
 		//ChatResource.connect();
+		$scope.displayUsername = "";
 		
 		$scope.onLogin = function onLogin() {
 			if(ChatResource.isInputValid($scope.user)) {
@@ -13,6 +14,8 @@ angular.module("chatApp").controller("LoginController",
 						console.log("true!!!");
 						ChatResource.myUsername = $scope.user;
 						console.log("your username is: " + ChatResource.myUsername);
+						$rootScope.$broadcast("usernameReceived");
+						//$scope.displayUsername = $scope.user;
 						$location.url("/rooms");
 						$scope.$apply();
 					} else {

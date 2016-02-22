@@ -2,20 +2,24 @@
 <html ng-app="chatApp">
 	<head>
 		<meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
 
 		<title>Chat APP</title>
 	<body>
-		<h1>Chat App</h1>
 		
+		
+		<div ng-controller="HeaderController" ng-init="displayWelcome='';displayUsername=''">
+			<h1>Chat App</h1><p>{{displayWelcome}}<strong>{{displayUsername}}</strong></p>
+		</div>
+
 		<div ng-view >
 		
 		</div>
 
-		<div ng-controller="HomeController">
-			<button ng-click="getAllUsers()">Get Users</button>
+		<div ng-controller="HomeController" ng-init="displayButton=false">
+			<button ng-show="displayButton"ng-click="getAllUsers()">Get Users</button>
 			<ul>
-				<li ng-repeat= "x in theOutput"> {{x}}  <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
+				<li ng-repeat= "x in theOutput"> {{x}} <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
 
 			</ul>
 
@@ -41,6 +45,7 @@
 		<script src="resource/ChatResource.js"></script>
 		<script src="room/RoomController.js"></script>
 		<script src="msg/MsgController.js"></script>
+		<script src="HeaderController.js"></script>
 		<script src="msg/HomeController.js"></script>
 		
 

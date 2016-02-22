@@ -15,6 +15,7 @@
 		"moment":  false,
 		"console": false,
 		"$":       false,
-		"io":      false
+		"io":      false,
+		"alert":   false
 		}
 }

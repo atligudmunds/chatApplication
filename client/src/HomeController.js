@@ -9,5 +9,5 @@ angular.module("chatApp").controller("HomeController",
 				$scope.theOutput = userlist;
 				$scope.$apply();
 			});
-		}
+		};
 });

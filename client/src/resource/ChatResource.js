@@ -101,5 +101,5 @@ angular.module("chatApp").factory("ChatResource",
 				return privateMsgs;
 			}
 
-		}
+		};
 	});

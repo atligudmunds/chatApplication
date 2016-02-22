@@ -1,6 +1,7 @@
-<div class="row" style="padding:10px">
-	<h2 style="text-align:center; color:#06264A"> Messages </h2>
-	<div class="col-sm-6" style="padding-left:50px">
+<div class="row" >
+	<h2 style="text-align:center; color:#06264A; padding-bottom: 40px" > Messages </h2>
+
+	<div class="col-sm-2">
 		<button class="btn btn-primary btn-ms" style="background-color:#2A517D; "ng-click="getAllUsers()">Refresh user list</button>
 
 		
@@ -10,18 +11,27 @@
 				
 				<button ng-click="chooseMsgRecipient(x)" class="btn btn-default" style="color:#173C65">{{x}}</button>
 			</li>
-		</ul>
+		</ul> 
 		
 		<a href="index.html#/rooms"> Back </a>
 	</div>
 
-	<div class="col-sm-5">
+	<div class="col-sm-4">
 	
 		<label>Send to: {{MsgRecipient}}</label> <br />
-		<input  style="width: 300px; height: 40px " type="text" ng-model="privateMsgBox"/>
+		<input   style="widht: 300px" type="text" ng-model="privateMsgBox"/>
 		<button class="btn btn-primary btn-ms" style="background-color:#2A517D;" ng-click="sendPrivateMsg()"> SEND </button>
 	
 	</div>
+	<div class="col-sm-4" style="background-color: #EFF8FB; border-style: groove; border-width: 1px; border-color: #06264A">
+		<h4> Messages Received  </h4>
+		<ul class="list-unstyled">
+			<li ng-repeat="x in privateMsgArray"> <strong>{{x.user}}</strong> {{" " + x.message}}
+			</li>
+		</ul>
+
+	</div>
+</div>
 
 
 <!--
@@ -31,11 +41,7 @@
 	<button ng-click="sendPrivateMsg()"> SEND </button>
 -->
 
-	<h1>Received Private Messages</h1>
-	<ul>
-		<li ng-repeat="x in privateMsgArray">{{x.user + ": " + x.message}}</li>
-	</ul>
+	
 
-</div>
 
 <!--ng-keypress="onPrivateEnter($event)"-->

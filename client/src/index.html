@@ -5,49 +5,54 @@
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" type="text/css" href="index.css">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
 
-	 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
-
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-
-
-		<title>Chat APP</title>
+	<title>Chat APP</title>
 	<body>
 		
 	<div class="container">
-			<div class="jumbotron text-center" style="background-color:#ADD8E6
-
- !important">
-
-			<h1>Chat App</h1>
-		</div>
-
-<!-- *********   The main Angular function ********************-->
-		
 		<div ng-controller="HeaderController" ng-init="displayWelcome='';displayUsername=''">
-			<h1>Chat App</h1><p>{{displayWelcome}}<strong>{{displayUsername}}</strong></p>
-		</div>
+			<div class="jumbotron text-center" style="background-color:#ADD8E6!important; padding:5px !important">
+				
+				<h1 style="color:white"> Chat App</h1>
+				
+				<div class="navbar-collapse collapse">
+					<div class="row">
+						<div class="col-md-5">
+		        		
+		          			<ul class="nav navbar-nav navbar-left">
+					            <li> <a  style="color:white" ng-click="msgWindow()">Skilaboð  </a>   </li>       
 
-		<div ng-view >
+					        </ul>
+						</div>  
+					    <div class="col-md-6">
+				    	 		<p style="color:white; text-align: left;" >{{displayWelcome}}<strong>{{displayUsername}}</strong></p>
+						</div>
+				 
+					 </div> 	
+				</div>
+
+				   
+
+          		</div><!--/.nav-collapse -->
+
+          		</div>
+          		
 		
-	<div class="row">
-		<div class="col-md-8" >
-			
-		</style>
-			<div ng-view ></div>	
+
+		<div class="row">
+			<div class="col-md-12" >
+				<div ng-view > </div>
+				<div ng-controller="HomeController"></div>
+
+			</div>
 		</div>
-	
-	
-			
 
-
-	<div class="col-md-4" >
-		<div ng-controller="HomeController">
-			<button   class="btn btn-default btn-sm" ng-click="getAllUsers()">Senda Skilaboð</button>
-			<div class="row">
+			<!--<div class="row">
 			<div class="list-group">	
 			<ul>
 				<li ng-repeat= "x in theOutput">
@@ -61,9 +66,9 @@
 			<ul>
 				<li ng-repeat= "x in theOutput"> {{x}} <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
 
-			</ul>
+			</ul>  -->
 				
-		</div>
+		
 	</div>
 	
 		

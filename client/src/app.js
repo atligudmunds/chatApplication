@@ -11,9 +11,11 @@ config(function ($routeProvider) {
 		controller: "RoomlistController"
 	}).when("/rooms/:id", {
 		templateUrl: "room/room.html",
-		controller: "RoomController",
-		css: ["room/room.css" , 'room/room2.css']
+		controller: "RoomController"
 
+	}).when("/message/" , {
+		templateUrl: "msg/message.html" ,
+		controller: "HomeController"
 	}).when("/sendMsg/:id", {
 		templateUrl: "msg/msg.html",
 		controller: "MsgController"

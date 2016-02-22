@@ -15,4 +15,13 @@ angular.module("chatApp").controller("HeaderController",
 			$location.url("/msgWindow");
 			//$scope.$apply();
 		}
+
+		ChatResource.receiveMessages( function(username, rcvMessage) {
+			//$scope.rcvMessageList = rcvMessage;
+			console.log("---received private msg---");
+			console.log("user: " + username);
+			console.log("msg: " + rcvMessage);
+			alert("user: " + username + "\nmsg: " + rcvMessage);
+			//$scope.$apply();
+		});
 	});

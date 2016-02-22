@@ -1,13 +1,17 @@
 <div>
 
-	<button ng-click="getAllUsers()">Get Users</button>
+	<button ng-click="getAllUsers()">Refresh user list</button>
+	<p>Send to:</p>
 	<ul>
-		<li ng-repeat= "x in theOutput"> {{x}} <button ng-click="sendMsgWindow(x)"> Skilaboð </button> </li>
-
+		<li ng-repeat="x in theOutput"><button ng-click="chooseMsgRecipient(x)">{{x}}</button></li>
 	</ul>
 
+
 	<h1>PRIVATE message</h1>
-	<input type="text" ng-model="privateMsgBox" ng-keypress="onPrivateEnter($event)"/>
+	<p>Send to: {{MsgRecipient}}</p>
+	<input type="text" ng-model="privateMsgBox"/>
 	<button ng-click="sendPrivateMsg()"> SEND </button>
 
 </div>
+
+<!--ng-keypress="onPrivateEnter($event)"-->

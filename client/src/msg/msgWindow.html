@@ -1,5 +1,47 @@
-<div>
-	<h1>PRIVATE message</h1>
-	<input type="text" ng-model="privateMsgBox" ng-keypress="onPrivateEnter($event)"/>
-	<button ng-click="sendPrivateMsg()"> SEND </button>
+<div class="row" >
+	<h2 style="text-align:center; color:#06264A; padding-bottom: 40px" > Messages </h2>
+
+	<div class="col-sm-2">
+		<button class="btn btn-primary btn-ms" style="background-color:#2A517D; "ng-click="getAllUsers()">Refresh user list</button>
+
+		
+		<ul class="list-unstyled" style="padding-top: 20px; padding-bottom:40px">
+			<div class="btn-group">
+			<li ng-repeat="x in theOutput" >
+				
+				<button ng-click="chooseMsgRecipient(x)" class="btn btn-default" style="color:#173C65">{{x}}</button>
+			</li>
+		</ul> 
+		
+		<a href="index.html#/rooms"> Back </a>
+	</div>
+
+	<div class="col-sm-4">
+	
+		<label>Send to: {{MsgRecipient}}</label> <br />
+		<input   style="widht: 300px" type="text" ng-model="privateMsgBox"/>
+		<button class="btn btn-primary btn-ms" style="background-color:#2A517D;" ng-click="sendPrivateMsg()"> SEND </button>
+	
+	</div>
+	<div class="col-sm-4" style="background-color: #EFF8FB; border-style: groove; border-width: 1px; border-color: #06264A">
+		<h4> Messages Received  </h4>
+		<ul class="list-unstyled">
+			<li ng-repeat="x in privateMsgArray"> <strong>{{x.user}}</strong> {{" " + x.message}}
+			</li>
+		</ul>
+
+	</div>
 </div>
+
+
+<!--
+	<h1>send PRIVATE message</h1>
+	<p>Send to: {{MsgRecipient}}</p>
+	<input type="text" ng-model="privateMsgBox"/>
+	<button ng-click="sendPrivateMsg()"> SEND </button>
+-->
+
+	
+
+
+<!--ng-keypress="onPrivateEnter($event)"-->

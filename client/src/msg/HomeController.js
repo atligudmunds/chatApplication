@@ -10,12 +10,12 @@ angular.module("chatApp").controller("HomeController",
 				$scope.theOutput = userlist;
 				$scope.$apply();
 			});
-		}
+		};
 
 		$scope.sendMsgWindow = function sendMsgWindow(x) {
 			$location.url("/sendMsg/" + x);
 			//$scope.$apply();
-		}
+		};
 
 		$rootScope.$on("usernameReceived", function() {
 			$scope.displayButton = true;
@@ -29,7 +29,7 @@ angular.module("chatApp").controller("HomeController",
 			console.log("---received private msg---");
 			console.log("user: " + username);
 			console.log("msg: " + rcvMessage);
-			alert("user: " + username + "\nmsg: " + rcvMessage);
+			//alert("user: " + username + "\nmsg: " + rcvMessage);
 			//$scope.$apply();
 		});
 });

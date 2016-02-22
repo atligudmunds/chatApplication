@@ -6,7 +6,7 @@ io = require('socket.io').listen(server);
 
 server.listen(8080);
 
-
+/*
 var room1 = new Room(); 
 var room2 = new Room(); 
 var room3 = new Room(); 
@@ -42,11 +42,12 @@ var messageObj3 = {
 room1.addMessage(messageObj1);
 room1.addMessage(messageObj2);
 room1.addMessage(messageObj3);
-
+*/
 //Store room in an object.
 var rooms = {
-	room1 , room2 , room3 
+	 
 };
+//room1 , room2 , room3
 //Global user object, since we want to know what rooms each user is in etc.
 var users = {};
 console.log("SERVER started!!!");
@@ -95,6 +96,11 @@ io.sockets.on('connection', function (socket) {
 			users[socket.username].channels[room] = room;
 			//Send the room information to the client.
 			fn(true);
+			// **********BÆTT VIÐ****************
+			io.sockets.emit('roomlist', rooms);
+			//socket.emit('roomlist', rooms);
+			// **********************************
+
 			io.sockets.emit('updateusers', room, rooms[room].users, rooms[room].ops);
 			//Update topic
 			socket.emit('updatetopic', room, rooms[room].topic, socket.username);

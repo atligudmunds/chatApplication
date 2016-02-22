@@ -4,6 +4,8 @@ angular.module("chatApp").factory("ChatResource",
 	function ChatResource() {
 		var socket;
 		var myUsername;
+		var bannedFrom = [];
+		var privateMsgs = [];
 		return {
 			connect: function connect() {
 				socket = io.connect("http://localhost:8080");
@@ -17,8 +19,11 @@ angular.module("chatApp").factory("ChatResource",
 				socket.emit("adduser", user, callback);
 			},
 
-			getRoomList: function getRoomList(callback) {
+			onRoomList: function onRoomList(callback) {
 				socket.on("roomlist", callback);
+			},
+
+			requestRoomList: function requestRoomList(callback) {
 				socket.emit("rooms");
 			},
 
@@ -67,7 +72,34 @@ angular.module("chatApp").factory("ChatResource",
 
 			getKicked: function getKicked(callback) {
 				socket.on("kicked", callback);
+			},
+
+			banUser: function banUser(banObj, callback) {
+				socket.emit("ban", banObj, callback);
+			},
+
+			getBanned: function getBanned(callback) {
+				socket.on("banned", callback);
+			},
+
+			addToBanned: function addToBanned(room) {
+				console.log("----------IMPORTANT!!----------");
+				console.log("Adding room: " + room);
+				bannedFrom[bannedFrom.length] = room;
+				console.log("Array contents: " + bannedFrom);
+			},
+
+			getBannedList: function getBannedList() {
+				return bannedFrom;
+			},
+
+			addPrivateMsgToArray: function addPrivateMsgToArray(msgObj) {
+				privateMsgs[privateMsgs.length] = msgObj;
+			},
+
+			getPrivateMsgArray: function getPrivateMsgArray() {
+				return privateMsgs;
 			}
 
-		}
+		};
 	});

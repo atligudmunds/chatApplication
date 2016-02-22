@@ -28,11 +28,11 @@ angular.module("chatApp").controller("LoginController",
 				$scope.errorMessage = "Verdur ad stimpla inn notandanafn";
 				//$scope.$apply();
 			}
-		}
+		};
 
 		$scope.onEnterIndex = function onEnterIndex(e) {
 			if(e.which == 13) {
 				$scope.onLogin();
 			}
-		}
+		};
 });

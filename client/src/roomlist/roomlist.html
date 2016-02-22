@@ -1,13 +1,35 @@
-<div>
-	<h1> The Room List </h1>
-	<ul>
-		<li ng-repeat= "(key, data) in TheRoomList"> {{key + ", " + data.topic}} 
-		<button ng-click="joinRoom(key)">join</button> </li>
+<div class="row" style="padding:10px">
+	<h2 style="text-align:center; color:#06264A"> Chat Rooms </h2>
+	<div class="col-sm-6" style="padding-left:50px">
+		
+	
+	<h3 style="color:#06264A"> Chat Rooms avalible</h3>
+	<ul class="list-unstyled"> 
+		<li ng-repeat= "(key, data) in TheRoomList" style="padding-top: 6px">
+			<div class="row" >
+				<div class="col-sm-4">
+					 <strong>{{key + " "}} </strong> 
+				<div class="col-sm-6">
+					 <button type="button" class="btn btn-primary btn-xs" style="background-color: white; color:#06264A"ng-click="joinRoom(key)">join</button>
+				</div>
+			</div>
+ 		   		<div class="col-sm-6">  
+ 		   			{{data.topic}} 
+ 		   		</div>
+ 		   	</div>
+ 		  
+
+ 		 </li>
 	</ul>
+	</div>
+	<div class="col-sm-6">
+		<h3 style="color:#06264A"> Create new room</h3>
+		<br />
+		 <label>Name:</label>
 
-	<input type="text" ng-model="roomId"/>
-	<button ng-click="createRoom()">Create Room</button>
-
+		<input type="text" ng-model="roomId"/> 
+		<button class="btn btn-primary btn-xs" style="background-color:#2A517D "ng-click="createRoom()">Create Room</button>
+	</div>
 </div>
 
 <!--<a ng-href="#/rooms/{{key}}"> join </a>-->

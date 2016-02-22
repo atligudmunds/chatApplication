@@ -116,7 +116,7 @@ angular.module("chatApp").controller("RoomController",
 			banObj.room = id;
 			ChatResource.banUser(banObj, function(status) {
 				if(status === true) {
-					console.log(kickedUser + " was kicked from room " + id);
+					console.log(bannedUser + " was banned from room " + id);
 				}
 			});
 		}
@@ -127,6 +127,8 @@ angular.module("chatApp").controller("RoomController",
 					$location.url("/rooms");
 					$scope.$apply();					
 				}
+				ChatResource.addToBanned(room);
+				console.log("BannedArray: " + ChatResource.getBannedList());
 				alert("You've been banned from room " + room + " because " + asshole + " didn't like you");
 			}
 			else if(room === id) {

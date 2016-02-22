@@ -6,14 +6,14 @@
 
 	<div class="row" style="padding-left: 20px">
 
-		<div class="col-md-7" style="background-color: #EFF8FB; border-style: groove; border-width: 1px; border-color: #06264A; height: 500px; overflow-y:auto;">
+		<div scroll-glue class="col-md-7" style="background-color: #EFF8FB; border-style: groove; border-width: 1px; border-color: #06264A; height: 325px; overflow-y:auto;">
 			<ul class="list-unstyled">
 			<li  ng-repeat= " (timestamp,  x) in message"> <h4>{{x.nick +  ": "}} </h4> <small>{{x.timestamp | date:'hh:mm: '}}</small> <br />{{" " + x.message}} </li> 
 			<li><input class="inputmsg" type="text" ng-model="messageBox" ng-keypress="onEnter($event)"/>
 			<button class="btn btn-primary btn-xs" style="background-color: #2A517D" ng-click="sendMessage()"> SEND </button></li>
 			</ul>
 		</div>
-		
+
 		<div class="col-md-1"> </div>
 		<div class="col-md-4" style="background-color: white; border-style: groove; border-width: 1px; border-color: white;">
 			<h4>Users in the room</h4>

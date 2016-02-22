@@ -1,7 +1,7 @@
 "use strict";
 
 // Býr til module
-angular.module("chatApp", ['ngRoute' , 'btford.socket-io']).
+angular.module("chatApp", ['ngRoute' , 'btford.socket-io', 'luegg.directives']).
 config(function ($routeProvider) {
 	$routeProvider.when("/", {
 		templateUrl: "login/login.html",

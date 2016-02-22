@@ -5,6 +5,7 @@ angular.module("chatApp").factory("ChatResource",
 		var socket;
 		var myUsername;
 		var bannedFrom = [];
+		var privateMsgs = [];
 		return {
 			connect: function connect() {
 				socket = io.connect("http://localhost:8080");
@@ -90,6 +91,14 @@ angular.module("chatApp").factory("ChatResource",
 
 			getBannedList: function getBannedList() {
 				return bannedFrom;
+			},
+
+			addPrivateMsgToArray: function addPrivateMsgToArray(msgObj) {
+				privateMsgs[privateMsgs.length] = msgObj;
+			},
+
+			getPrivateMsgArray: function getPrivateMsgArray() {
+				return privateMsgs;
 			}
 
 		}

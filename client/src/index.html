@@ -16,7 +16,8 @@
 		
 	<div class="container">
 		<div ng-controller="HeaderController" ng-init="displayWelcome='';displayUsername=''">
-			<div class="jumbotron text-center" style="background-color:#ADD8E6!important; padding:5px !important">
+			<div class="jumbotron text-center" style="background-color:#36648B
+!important; padding:5px !important">
 				
 				<h1 style="color:white"> Chat App</h1>
 				
@@ -25,7 +26,7 @@
 						<div class="col-md-5">
 		        		
 		          			<ul class="nav navbar-nav navbar-left">
-					            <li> <a  style="color:white" ng-click="msgWindow()">Skilaboð  </a>   </li>       
+					            <li> <button  style="color:white" ng-click="msgWindow()">Skilaboð  </button>   </li>       
 
 					        </ul>
 						</div>  
@@ -47,7 +48,7 @@
 		<div class="row">
 			<div class="col-md-12" >
 				<div ng-view > </div>
-				<div ng-controller="HomeController"></div>
+				<!--<div ng-controller="HomeController"></div>  -->
 
 			</div>
 		</div>

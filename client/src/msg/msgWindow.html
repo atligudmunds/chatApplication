@@ -1,16 +1,28 @@
-<div>
+<div class="row" style="padding:10px">
+	<h2 style="text-align:center; color:#06264A"> Skilaboð </h2>
+	<div class="col-sm-4" style="padding-left:50px">
+		<button class="btn btn-primary btn-ms" style="background-color:#2A517D; "ng-click="getAllUsers()">Refresh user list</button>
+		
+		<ul class="list-unstyled">
+			<div class="btn-group">
+			<li ng-repeat="x in theOutput" >
+				
+				<button ng-click="chooseMsgRecipient(x)" class="btn btn-default">{{x}}</button>
+			</li>
+		</ul>
+		
+		<a href="index.html#/rooms"> Til baka </a>
+	</div>
 
-	<button ng-click="getAllUsers()">Refresh user list</button>
-	<p>Send to:</p>
-	<ul>
-		<li ng-repeat="x in theOutput"><button ng-click="chooseMsgRecipient(x)">{{x}}</button></li>
-	</ul>
+	<div class="col-sm-6">
+	
+		<label>Send to: {{MsgRecipient}}</label> <br />
+		<input type="text" ng-model="privateMsgBox"/>
+		<button class="btn btn-primary btn-ms" style="background-color:#2A517D;" ng-click="sendPrivateMsg()"> SEND </button>
+	
+	</div>
 
 
-	<h1>PRIVATE message</h1>
-	<p>Send to: {{MsgRecipient}}</p>
-	<input type="text" ng-model="privateMsgBox"/>
-	<button ng-click="sendPrivateMsg()"> SEND </button>
 
 </div>
 

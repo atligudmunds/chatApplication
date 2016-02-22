@@ -13,6 +13,7 @@ angular.module("chatApp").controller("HeaderController",
 		$rootScope.$on("usernameReceived", function() {
 			$scope.displayWelcome = "Welcome, ";
 			$scope.displayUsername = ChatResource.myUsername;
+			$scope.displayMsgButton = true;
 		});
 
 
